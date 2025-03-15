@@ -1,0 +1,98 @@
+$primary-color: #1a1a1a;
+$text-color: #ffffff;
+$secondary-text: #bdbdbd;
+$highlight-color: #d50000;
+$border-color: #333333;
+
+.footer {
+  background-color: $primary-color;
+  color: $text-color;
+  padding: 50px 0; // ✅ Tăng padding giúp footer nhìn rộng hơn
+  margin-top: 300px;
+
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px; // ✅ Tăng khoảng cách giữa các cột
+    padding: 0 20px;
+    text-align: left;
+    margin-left: 200px;
+
+    .footer-section {
+      h3 {
+        color: $text-color;
+        margin-bottom: 18px;
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+          margin-bottom: 12px;
+
+          a {
+            color: $secondary-text;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease, transform 0.2s ease;
+
+            &:hover {
+              color: $highlight-color;
+              transform: translateX(4px); // ✅ Hiệu ứng trượt khi hover
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .social-links {
+    display: flex;
+    gap: 18px; // ✅ Tăng khoảng cách giữa các icon
+    margin-top: 10px;
+
+    a {
+      color: $text-color;
+      font-size: 24px;
+      transition: transform 0.3s ease, color 0.3s ease;
+
+      &:hover {
+        color: $highlight-color;
+        transform: scale(1.2); // ✅ Zoom in khi hover
+      }
+    }
+  }
+
+  .footer-bottom {
+    text-align: center;
+    margin-top: 35px;
+    padding-top: 15px;
+    border-top: 1px solid $border-color;
+    color: $secondary-text;
+    font-size: 14px;
+  }
+}
+
+// ✅ Responsive Footer
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: center; // ✅ Căn giữa nội dung trên mobile
+
+    .social-links {
+      justify-content: center;
+    }
+  }
+}

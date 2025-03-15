@@ -1,0 +1,83 @@
+@import "global.scss"; // Import biến màu sắc
+
+$product-card-bg: #ffffff;
+$product-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+.product-details {
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 30px;
+  display: flex;
+  gap: 40px;
+  background: $product-card-bg;
+  box-shadow: $product-shadow;
+  border-radius: 10px;
+  overflow: hidden;
+  align-items: center;
+
+  img {
+    width: 350px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: $product-shadow;
+  }
+
+  .details-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 15px;
+
+    h2 {
+      font-size: 28px;
+      color: $primary-color;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 18px;
+      color: #333;
+    }
+
+    .price {
+      font-size: 22px;
+      font-weight: bold;
+      color: $primary-color;
+    }
+
+    .add-to-cart {
+      background: $primary-color;
+      color: #fff;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background 0.3s ease-in-out;
+
+      &:hover {
+        background: darken($primary-color, 10%);
+      }
+    }
+
+    .back-link {
+      background-color: gray;
+      margin-top: 10px;
+      padding: 12px 20px;
+      text-decoration: none;
+      text-align: center;
+      color: white;
+      border: none;
+      width: 140px;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: color 0.3s;
+
+      &:hover {
+        color: darken(white, 15%);
+        background-color: rgb(99, 99, 99);
+      }
+    }
+  }
+}
