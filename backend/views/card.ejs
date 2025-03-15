@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ hàng</title>
+    <link rel="stylesheet" href="/styles/card.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="/script/card_js.js"></script>
+</head>
+<body>
+    <header>
+        <h2>Giỏ hàng của bạn</h2>
+        <a href="/product" class="back-btn">
+            <i class="fa fa-arrow-left"></i> Tiếp tục mua sắm
+        </a>
+    </header>
+
+    <div class="cart-container">
+                <!-- Modal dialog - placed here so it's outside the cart items condition -->
+                <div id="confirmModal" class="modal" style="display: none;">
+                    <div class="modal-content">
+                        <h3>Xác nhận xóa</h3>
+                        <p>Bạn có chắc chắn muốn xóa sản phẩm này khỏi giỏ hàng không?</p>
+                        <div class="modal-buttons">
+                            <button id="confirmDelete" class="btn-confirm">Có</button>
+                            <button id="cancelDelete" class="btn-cancel">Không</button>
+                        </div>
+                    </div>
+                </div>
+        
+        <% if (cart && cart.phones && cart.phones.length > 0) { %>
+            <div class="cart-items">
+                <% cart.phones.forEach(phone => { %>
+                    <div class="cart-item">
+                        <img src="<%= phone.image %>" alt="<%= phone.name %>">
+                        <div class="item-details">
+                            <h3><%= phone.name %></h3>
+                            <p class="brand"><%= phone.brand ? phone.brand.name : 'Unknown Brand' %></p>
+                            <p class="specs"><%= phone.rom %>GB <%= phone.ram %>GB</p>
+                            <p class="price"><%= phone.price.toLocaleString() %>đ</p>
+                        </div>
+                        <div class="item-actions">
+                            <button class="remove-btn" onclick="removeFromCart('<%= phone._id %>')">
+                                <i class="fa fa-trash" style="font-size: 20px;"></i>
+                            </button>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+            <div class="cart-summary">
+                <h2>Tổng giỏ hàng</h2>
+                <div class="summary-item">
+                    <span>Tổng tiền:</span>
+                    <span class="total-price">
+                        <%= cart.phones.reduce((total, phone) => total + phone.price, 0).toLocaleString() %>đ
+                    </span>
+                </div>
+                <button class="checkout-btn">Thanh toán ngay</button>
+            </div>
+        <% } else { %>
+            <div class="empty-cart">
+                <i class="fa fa-shopping-cart"></i>
+                <h2>Giỏ hàng trống</h2>
+                <p>Hãy thêm sản phẩm vào giỏ hàng của bạn</p>
+                <a href="/product" class="continue-shopping">Tiếp tục mua sắm</a>
+            </div>
+        <% } %>
+    </div>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Về chúng tôi</h3>
+                <ul>
+                    <li><a href="#">Giới thiệu</a></li>
+                    <li><a href="#">Tin tức</a></li>
+                    <li><a href="#">Tuyển dụng</a></li>
+                    <li><a href="#">Liên hệ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Hỗ trợ khách hàng</h3>
+                <ul>
+                    <li><a href="#">Hướng dẫn mua hàng</a></li>
+                    <li><a href="#">Chính sách bảo hành</a></li>
+                    <li><a href="#">Chính sách đổi trả</a></li>
+                    <li><a href="#">Vận chuyển & Thanh toán</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Thông tin cửa hàng</h3>
+                <ul>
+                    <li><a href="#">Hệ thống cửa hàng</a></li>
+                    <li><a href="#">Trung tâm bảo hành</a></li>
+                    <li><a href="#">Chính sách bảo mật</a></li>
+                    <li><a href="#">Điều khoản sử dụng</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Kết nối với chúng tôi</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-instagram"></i></a>
+                    <a href="#"><i class="fa fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Phone Store. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

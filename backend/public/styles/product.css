@@ -1,0 +1,281 @@
+body {
+    font-family: Arial, sans-serif;
+    color: white;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    padding-top: 75px;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: #d50000;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 45px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 140px;
+    z-index: 1001;
+}
+
+.cart-icon {
+    position: relative;
+    color: white;
+    text-decoration: none;
+    font-size: 28px;
+    right: 110px;
+
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: white;
+    color: #d50000;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 50%;
+    font-weight: bold;
+}
+
+
+/* Hiệu ứng hover cho giỏ hàng */
+.cart-icon:hover {
+    opacity: 0.8;
+}
+
+header h2 {
+    text-transform: capitalize;
+    margin-left: 110px;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.search-box {
+    width: 300px;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+}
+
+.search-button {
+    background: none;
+    border: none;
+    color: white;
+    margin-left: -35px;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.search-button:hover {
+    color: #f0f0f0;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    color: black;
+    margin: 50px;
+}
+
+.product-card {
+    width: 250px;
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(74, 67, 67, 0.315);
+    text-align: center;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.product-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.discount-label {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: red;
+    color: white;
+    padding: 5px;
+    font-size: 12px;
+    border-radius: 3px;
+}
+
+.price {
+    margin: 10px 0;
+}
+
+.current-price {
+    color: red;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.original-price {
+    text-decoration: line-through;
+    color: gray;
+    font-size: 14px;
+}
+
+.like-btn {
+    position: absolute;
+    width: 15px;
+    top: 10px;
+    left: 89%;
+    padding: 5px;
+    font-size: 12px;
+    border-radius: 3px;
+    border: none;
+    background: white;
+}
+
+.fa-heart {
+    color: rgb(188, 188, 188);
+}
+
+.fa-heart:hover {
+    color: red;
+}
+
+.fa-heart.selected {
+    color: red; /* Màu đỏ khi được chọn */
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.add-to-cart, .buy-now {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.add-to-cart {
+    background-color: #ff57221a;
+    color: #d50000;
+}
+
+.buy-now {
+    background-color: #d50000;
+    color: white;
+}
+
+.add-to-cart:hover {
+    background-color: #ff57223a;
+}
+
+.buy-now:hover {
+    background-color: #b71c1c;
+}
+
+.footer {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 40px 0;
+    margin-top: 30px;
+    text-align: left;
+
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    padding: 0 20px;
+}
+
+.footer-section h3 {
+    color: #ffffff;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #999999;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #d50000;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    color: #ffffff;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #d50000;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #333333;
+    color: #999999;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 300px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+}

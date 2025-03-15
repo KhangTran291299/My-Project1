@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách điện thoại</title>
+    <link rel="stylesheet" href="/styles/product.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="/script/product.js"></script>
+</head>
+<body>
+    <header>
+        <h2 class="capitalize">Danh sách sản phẩm</h2>
+        <div class="header-right">
+            <form action="/search" method="GET" class="search-form">
+                <input type="text" name="q" placeholder="Bạn cần tìm gì?" class="search-box">
+                <button type="submit" class="search-button">
+                    <i class="fa fa-search"></i>
+                </button>
+            </form>
+            <a href="/cart" class="cart-icon">
+                <i class="fa fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+            </a>
+        </div>
+    </header>
+    
+    <div class="container">
+        <% phones.forEach(phone => { %>
+            <div class="product-card" onclick="window.location.href='/product/<%= phone._id %>'"> <!-- Thêm sự kiện click để chuyển hướng đến trang chi tiết sản phẩm -->
+                <div class="discount-label">Giảm 9%</div>
+                <div class="like-btn"><i class="fa fa-heart" style="font-size: 18px;"></i></div>
+                <img src="<%= phone.image %>" alt="<%= phone.name %>">
+                <h3><%= phone.name %></h3>
+                <p class="specs"><%= phone.rom %>GB <%= phone.ram %>GB <%= phone.brand ? phone.brand.name : 'Unknown Brand' %> </p>
+                <p class="price">
+                    <span class="original-price"><%= (phone.price * 1.09).toLocaleString() %>đ</span><br>
+                    <span class="current-price"><%= phone.price.toLocaleString() %>đ</span>
+                </p>
+                <div class="button-group">
+                    <button class="add-to-cart" onclick="addToCart('<%= phone._id %>', event)">
+                        <i class="fa fa-shopping-cart"></i> Thêm vào giỏ
+                    </button>
+                    <button class="buy-now">
+                        <i class="fa fa-flash"></i> Mua ngay
+                    </button>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Về chúng tôi</h3>
+                <ul>
+                    <li><a href="#">Giới thiệu</a></li>
+                    <li><a href="#">Tin tức</a></li>
+                    <li><a href="#">Tuyển dụng</a></li>
+                    <li><a href="#">Liên hệ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Hỗ trợ khách hàng</h3>
+                <ul>
+                    <li><a href="#">Hướng dẫn mua hàng</a></li>
+                    <li><a href="#">Chính sách bảo hành</a></li>
+                    <li><a href="#">Chính sách đổi trả</a></li>
+                    <li><a href="#">Vận chuyển & Thanh toán</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Thông tin cửa hàng</h3>
+                <ul>
+                    <li><a href="#">Hệ thống cửa hàng</a></li>
+                    <li><a href="#">Trung tâm bảo hành</a></li>
+                    <li><a href="#">Chính sách bảo mật</a></li>
+                    <li><a href="#">Điều khoản sử dụng</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Kết nối với chúng tôi</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-instagram"></i></a>
+                    <a href="#"><i class="fa fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Phone Store. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
