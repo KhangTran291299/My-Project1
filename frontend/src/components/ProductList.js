@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { fetchProducts, addToCart } from "../api";
-import { useCart } from "../context/CartContext"; // ✅ Import useCart
+import { useCart } from "../context/CartContext"; // Import useCart
 import "../styles/product.scss";
 
 function ProductList() {
   const [products, setProducts] = useState([]);
-  const { updateCartCount } = useCart(); // ✅ Lấy hàm cập nhật giỏ hàng
+  const { updateCartCount } = useCart(); // Lấy hàm cập nhật giỏ hàng
 
   useEffect(() => {
     fetchProducts().then(setProducts);
@@ -16,7 +16,7 @@ function ProductList() {
   const handleAddToCart = async (productId) => {
     try {
       await addToCart("67c2fc076712ec146f26fa6f", productId);
-      updateCartCount(); // ✅ Cập nhật số lượng giỏ hàng ngay sau khi thêm
+      updateCartCount(); // Cập nhật số lượng giỏ hàng ngay sau khi thêm
     } catch (error) {
       console.error("Lỗi khi thêm vào giỏ hàng:", error);
     }

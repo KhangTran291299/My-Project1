@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết sản phẩm</title>
+    <link rel="stylesheet" href="/styles/details.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="/script/details.js"></script>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <a href="/product" class="back-btn">
+                <i class="fa fa-arrow-left"></i>
+            </a>
+            <h2>Chi tiết sản phẩm</h2>
+        </div>
+        <div class="header-right">
+            <a href="/cart" class="cart-icon">
+                <i class="fa fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+            </a>
+        </div>
+    </header>
+
+    <div class="product-details">
+        <div class="product-image">
+            <img src="<%= phone.image %>" alt="<%= phone.name %>">
+        </div>
+        <div class="product-info">
+            <h2 class="product-name"><%= phone.name %></h2>
+            <div class="brand">
+                <span class="label">Thương hiệu:</span>
+                <span class="value"><%= phone.brand ? phone.brand.name : 'Unknown Brand' %></span>
+            </div>
+            <div class="specs">
+                <div class="spec-item">
+                    <i class="fa fa-mobile"></i>
+                    <span>Màn hình <%= phone.screenSize %> inches</span>
+                </div>
+                <div class="spec-item">
+                    <i class="fa fa-microchip"></i>
+                    <span>RAM <%= phone.ram %> GB</span>
+                </div>
+                <div class="spec-item">
+                    <i class="fa fa-hdd-o"></i>
+                    <span>Bộ nhớ <%= phone.storage %> GB</span>
+                </div>
+            </div>
+            <div class="price-section">
+                <div class="price">
+                    <span class="current-price"><%= phone.price.toLocaleString() %>đ</span>
+                    <span class="original-price"><%= (phone.price * 1.09).toLocaleString() %>đ</span>
+                    <span class="discount">-9%</span>
+                </div>
+            </div>
+            <div class="description">
+                <h3>Mô tả sản phẩm</h3>
+                <p><%- phone.description.split('.').join('.<br>') %></p>
+            </div>
+            <div class="button-group">
+                <button class="add-to-cart" onclick="addToCart('<%= phone._id %>')">
+                    <i class="fa fa-shopping-cart"></i>
+                    Thêm vào giỏ
+                </button>
+                <button class="buy-now">
+                    <i class="fa fa-flash"></i>
+                    Mua ngay
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Về chúng tôi</h3>
+                <ul>
+                    <li><a href="#">Giới thiệu</a></li>
+                    <li><a href="#">Tin tức</a></li>
+                    <li><a href="#">Tuyển dụng</a></li>
+                    <li><a href="#">Liên hệ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Hỗ trợ khách hàng</h3>
+                <ul>
+                    <li><a href="#">Hướng dẫn mua hàng</a></li>
+                    <li><a href="#">Chính sách bảo hành</a></li>
+                    <li><a href="#">Chính sách đổi trả</a></li>
+                    <li><a href="#">Vận chuyển & Thanh toán</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Thông tin cửa hàng</h3>
+                <ul>
+                    <li><a href="#">Hệ thống cửa hàng</a></li>
+                    <li><a href="#">Trung tâm bảo hành</a></li>
+                    <li><a href="#">Chính sách bảo mật</a></li>
+                    <li><a href="#">Điều khoản sử dụng</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Kết nối với chúng tôi</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-instagram"></i></a>
+                    <a href="#"><i class="fa fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Phone Store. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
